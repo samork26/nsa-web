@@ -67,7 +67,7 @@ section {
     margin-bottom: 20px;
 }
 
-.about, .events {
+.about, .events, .newsletter {
     background-color: #fff;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
     padding: 20px;
@@ -97,4 +97,27 @@ footer p {
     justify-content: center;
     align-items: center;
     min-height: 70vh;
+}
+
+.page-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    min-height: 70vh;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: #3498db;
+}
+
+a.active{
+    color: #3498db;
+    font-weight: bold;
 }
