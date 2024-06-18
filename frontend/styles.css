@@ -301,3 +301,109 @@ a.active{
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Additional styles for login form */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.login h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.login-form div {
+    width: 100%;
+    max-width: 300px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px; /* Reduce space between button and link */
+}
+
+.login-link {
+    margin-top: 10px; /* Reduce space between form and register link */
+    text-align: center;
+}
+
+/* Styles for the auth buttons to be on the top right */
+.auth-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.auth-buttons .button {
+    background-color: #c3d8e8;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.auth-buttons .button:hover {
+    background-color: #2980b9;
+}
+
+.auth-buttons #welcomeMessage {
+    color: #ecf0f1;
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+/* Styles for centering the logo and title */
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0; /* Reduced padding */
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+.header-content h1 {
+    font-size: 2.5em;
+    margin: 10px 0; /* Adjusted margin to reduce gap */
+    padding: 0;
+}
+
+.logo {
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+nav {
+    background-color: #2c3e50;
+    padding: 0; /* Removed extra padding */
+    margin-top: -10px; /* Adjusted margin to remove gap */
+}
+
+/* Ensure the header and nav elements don't have extra margins */
+header {
+    margin-bottom: 0;
+}
+
+nav ul.menu {
+    margin: 0;
+}

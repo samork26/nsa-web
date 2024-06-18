@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain Bee - NSA @ UCF</title>
-    <link rel="icon" img src="logos/NSA LOGO.PNG">
+    <title>Login - Neuroscience Alliance @ UCF</title>
+    <link rel="icon" href="logos/NSA LOGO.PNG">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -34,27 +34,42 @@
             </ul>
         </nav>
     </header>
-    <div class="page-content">
-        <section class="about">
-            <h2>What is Brain Bee?</h2>
-            <p1>
-                Our Central Florida Brain Bee is a regional neuroscience competition that serves high schoolers in the Central Florida area to compete and progress to nationals. 
-                In addition to this competition, we prepare high schoolers in the area by traveling to them and teaching them the material they need to know for the event for no price. 
-                Our goal in teaching them and this event is to establish that neuroscience is a subject that should be accessible to everyone. Thus, we also fund their flight ticket to the national championship.
-            </p1>
+
+    <section class="hero">
+        <h2>Login</h2>
+    </section>
+
+    <div class="content-wrapper animate">
+        <section class="login">
+            <h2>Login to Your Account</h2>
+            <form action="/login" method="post" class="login-form">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div>
+                    <button type="submit" class="button">Login</button>
+                </div>
+            </form>
+            <p class="login-link">Don't have an account? <a href="register.html">Register here</a></p>
         </section>
     </div>
+
+    <footer>
+        <p>Neuroscience Alliance @ UCF circa. 2023</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/neuroallianceucf" target="_blank">
+                <img src="logos/instagram-logo.png" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://groupme.com/join_group/69826567/X2PI0Tdz" target="_blank">
+                <img src="logos/groupme-logo.png" alt="GroupMe" class="social-icon">
+            </a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
-<footer>
-    <p>Neuroscience Alliance @ UCF circa. 2023</p>
-    <div class="social-links">
-        <a href="https://www.instagram.com/neuroallianceucf" target="_blank">
-            <img src="logos/instagram-logo.png" alt="" class="social-icon">
-        </a>
-        <a href="https://groupme.com/join_group/69826567/X2PI0Tdz" target="_blank">
-            <img src="logos/groupme-logo.png" alt="" class="social-icon">
-        </a>
-    </div>
-</footer>
-<script src="script.js"></script>
 </html>

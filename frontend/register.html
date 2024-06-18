@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Neuroscience Alliance @ UCF</title>
+    <link rel="icon" href="logos/NSA LOGO.PNG">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="logos/NSA LOGO.PNG" class="logo">
+        <h1>Neuroscience Alliance at UCF</h1>
+        <nav>
+            <ul class="menu">
+                <li class="nav-item"><a href="index.html#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="events.html#" class="nav-link">Events</a></li>
+                <li class="nav-item"><a href="leadership.html" class="nav-link">Leadership</a></li>
+                <li class="nav-item"><a href="faq.html#" class="nav-link">FAQ</a></li>
+                <li class="nav-item"><a href="membership.html#" class="nav-link">Membership</a></li>
+                <li class="nav-item"><a href="brain-bee.html#" class="nav-link">Brain Bee</a></li>
+            </ul> 
+            <ul class="hamburger-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Create Your Account</h2>
+    </section>
+
+    <div class="content-wrapper animate">
+        <section class="about">
+            <h2>Register</h2>
+            <form action="/register" method="post" class="page-content">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div>
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div>
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <button type="submit" class="button">Register</button>
+                </div>
+            </form>
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>Neuroscience Alliance @ UCF circa. 2023</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/neuroallianceucf" target="_blank">
+                <img src="logos/instagram-logo.png" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://groupme.com/join_group/69826567/X2PI0Tdz" target="_blank">
+                <img src="logos/groupme-logo.png" alt="GroupMe" class="social-icon">
+            </a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
