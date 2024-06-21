@@ -58,12 +58,16 @@ document.querySelector('form[action="/register"]').addEventListener('submit', as
     const lastName = form.lastName.value;
     const email = form.email.value;
     const password = form.password.value;
-    const result = await createUser(firstName, lastName, email, password);
+    try {
+        const result = await createUser(firstName, lastName, email, password);
     // Handle the result (e.g., show a message to the user)
-    if (result.message === 'User created successfully') {
-        alert('Registration successful!');
-        window.location.href = 'login.html';
-    } else {
-        alert('Registration failed: ' + result.error);
+        if (result.message === 'User created successfully') {
+            alert('Registration successful!');
+            window.location.href = 'login.html';
+        } else {
+            alert('Registration failed: ' + result.error);
+        }
+    } catch (error) {
+        alert('Registration failed: ' + error.message);
     }
 });
