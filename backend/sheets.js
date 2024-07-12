@@ -1,5 +1,5 @@
 const { google } = require('googleapis');
-const { getClient } = require('./auth');
+const { getClient } = require('backend/auth.js');
 const sheets = google.sheets('v4');
 
 async function getSheet(spreadsheetId, range) {
