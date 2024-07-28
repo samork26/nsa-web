@@ -8,8 +8,7 @@ async function createUser(spreadsheetId, user) {
     // Check for duplicates based on email
     const duplicate = data && data.some(row => row[0] === user.firstName && row[1] === user.lastName && row[2] === user.email);
     if (duplicate){
-      console.log("User with this first name, last name, and email already exists");
-      return;
+      throw new Error('User already exists');
     }
 
     // Append the new user data if no duplicate is found
