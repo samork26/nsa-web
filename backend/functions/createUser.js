@@ -16,10 +16,7 @@ async function createUser(spreadsheetId, user) {
     const appendRange = 'A1:F1'; // Adjust the range if needed
     await appendRow(spreadsheetId, appendRange, [[user.firstName, user.lastName, user.email, user.password, user.year, user.major]]);
     console.log('User added to sheet');
-
-    // Verify writing by reading the updated data
-    const updatedData = await getSheet(spreadsheetId, range);
-    console.log('Updated data read from sheet:', updatedData);
+    
   } catch (error) {
     console.error('Error creating user:', error);
     throw error;
