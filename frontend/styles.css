@@ -426,11 +426,3 @@ header {
     text-decoration: none;
     cursor: pointer;
 }
-
-/* Add this to your existing CSS */
-.user-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-}

@@ -38,15 +38,3 @@ checkElements();
 // Event listener for scrolling
 window.addEventListener('scroll', checkElements);
 
-// Check if user is logged in
-const loginButton = document.getElementById('loginButton');
-const userIcon = document.getElementById('userIcon');
-const userName = localStorage.getItem('userName');
-
-if (userName) {
-    loginButton.style.display = 'none';
-    userIcon.style.display = 'block';
-} else {
-    loginButton.style.display = 'block';
-    userIcon.style.display = 'none';
-}
