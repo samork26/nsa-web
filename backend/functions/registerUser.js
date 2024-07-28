@@ -10,6 +10,7 @@ exports.handler = async (event, context) => {
   }
 
   const user = JSON.parse(event.body);
+  console.log('User:', user);
 
   try {
     await createUser('1kvgpO5QP0NYuSp0bPN-mDniKvK6j3PUN6DirH64guUo', user); // Your spreadsheet ID
