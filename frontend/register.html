@@ -63,6 +63,15 @@
         </section>
     </div>
 
+    <!-- Modal for success message -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Account creation successful!</p>
+            <button id="homeButton" class="button">Go to Home</button>
+        </div>
+    </div>
+
     <footer>
         <p>Neuroscience Alliance @ UCF circa. 2023</p>
         <div class="social-links">
@@ -77,6 +86,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             console.log('Document loaded');
+            const modal = document.getElementById('successModal');
+            const span = document.getElementsByClassName('close')[0];
+            const homeButton = document.getElementById('homeButton');
+
             document.getElementById('registerForm').addEventListener('submit', async (e) => {
                 e.preventDefault();
                 console.log('Form submitted');
@@ -97,10 +110,29 @@
 
                     const result = await response.json();
                     console.log('Result:', result);
+
+                    if (response.ok) {
+                        modal.style.display = 'block';
+                        e.target.reset(); // Clear the form fields
+                    }
                 } catch (error) {
                     console.error('Error:', error);
                 }
             });
+
+            span.onclick = function() {
+                modal.style.display = 'none';
+            }
+
+            homeButton.onclick = function() {
+                window.location.href = 'index.html';
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
         });
     </script>
 </body>
