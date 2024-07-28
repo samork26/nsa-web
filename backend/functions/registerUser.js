@@ -1,4 +1,3 @@
-// netlify/functions/registerUser.js
 const { createUser } = require('./createUser'); // Adjust the path to your createUser.js
 
 exports.handler = async (event, context) => {
@@ -9,8 +8,17 @@ exports.handler = async (event, context) => {
     };
   }
 
-  const user = JSON.parse(event.body);
-  console.log('User:', user);
+  let user;
+  try {
+    user = JSON.parse(event.body);
+    console.log('User:', user);
+  } catch (error) {
+    console.error('Error parsing JSON:', error);
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: 'Invalid JSON input' }),
+    };
+  }
 
   try {
     await createUser('1kvgpO5QP0NYuSp0bPN-mDniKvK6j3PUN6DirH64guUo', user); // Your spreadsheet ID
