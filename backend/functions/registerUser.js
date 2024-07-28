@@ -21,11 +21,18 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    await createUser('1kvgpO5QP0NYuSp0bPN-mDniKvK6j3PUN6DirH64guUo', user); // Your spreadsheet ID
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: 'User registered successfully!' }),
-    };
+    const result = await createUser('1kvgpO5QP0NYuSp0bPN-mDniKvK6j3PUN6DirH64guUo', user); // Your spreadsheet ID
+    if (result.success) {
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ message: result.message }),
+      };
+    } else {
+      return {
+        statusCode: 409,
+        body: JSON.stringify({ error: result.message }),
+      };
+    }
   } catch (error) {
     console.error('Error registering user:', error);
     return {

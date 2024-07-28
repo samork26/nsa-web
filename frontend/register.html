@@ -67,8 +67,9 @@
     <div id="successModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>Account creation successful!</p>
+            <p id="modalMessage">Account creation successful!</p>
             <button id="homeButton" class="button">Go to Home</button>
+            <button id="loginButton" class="button" style="display: none;">Go to Login</button>
         </div>
     </div>
 
@@ -89,6 +90,8 @@
             const modal = document.getElementById('successModal');
             const span = document.getElementsByClassName('close')[0];
             const homeButton = document.getElementById('homeButton');
+            const loginButton = document.getElementById('loginButton');
+            const modalMessage = document.getElementById('modalMessage');
 
             document.getElementById('registerForm').addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -100,7 +103,7 @@
                 });
 
                 try {
-                    const response = await fetch('.netlify/functions/registerUser', {
+                    const response = await fetch('/.netlify/functions/registerUser', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -112,9 +115,16 @@
                     console.log('Result:', result);
 
                     if (response.ok) {
-                        modal.style.display = 'block';
+                        modalMessage.textContent = 'Account creation successful!';
+                        homeButton.style.display = 'block';
+                        loginButton.style.display = 'none';
                         e.target.reset(); // Clear the form fields
+                    } else if (response.status === 409) {
+                        modalMessage.textContent = 'Account already exists!';
+                        homeButton.style.display = 'none';
+                        loginButton.style.display = 'block';
                     }
+                    modal.style.display = 'block';
                 } catch (error) {
                     console.error('Error:', error);
                 }
@@ -126,6 +136,10 @@
 
             homeButton.onclick = function() {
                 window.location.href = 'user-home.html';
+            }
+
+            loginButton.onclick = function() {
+                window.location.href = 'login.html';
             }
 
             window.onclick = function(event) {
