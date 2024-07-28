@@ -89,12 +89,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-// Simulate storing the user's name after login (example usage)
-function simulateLogin(userName) {
-    localStorage.setItem('userName', userName);
-}
-
-// Example usage: Simulate a login with the user's name
-// This would be triggered after a successful login, e.g., from a form submission or API call
-simulateLogin('John Doe');  // Replace 'John Doe' with the actual logged-in user's name
