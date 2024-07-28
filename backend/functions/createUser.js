@@ -22,18 +22,10 @@ async function createUser(spreadsheetId, user) {
     console.log('Updated data read from sheet:', updatedData);
   } catch (error) {
     console.error('Error creating user:', error);
+    throw error;
   }
 }
 
-const user = {
-  firstName: "John",
-  lastName: "Doe",
-  email: "john.doe@example.com",
-  password: "password123",
-  year: "Sophomore",
-  major: "Computer Science",
+module.exports = {
+  createUser
 };
-
-const spreadsheetId = '1kvgpO5QP0NYuSp0bPN-mDniKvK6j3PUN6DirH64guUo'; // Your actual spreadsheet ID
-
-createUser(spreadsheetId, user);
