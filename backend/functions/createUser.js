@@ -1,35 +1,39 @@
-const { appendRow } = require('../sheets.js');
+const { getSheet, appendRow } = require('../sheets');
 
-const spreadsheetId = '1kvgpO5QP0NYuSp0bPN-mDniKvK6j3PUN6DirH64guUo'; // Replace with your actual spreadsheet ID
-const range = 'A2:D2'; // Adjust the range to match where you want to append the user data
-
-exports.handler = async (event, context) => {
+async function createUser(spreadsheetId, user) {
   try {
-    console.log('Received event:', event);
-
-    const user = JSON.parse(event.body);
-    console.log('Parsed user:', user);
-
-    const { firstName, lastName, email, password } = user;
-    if (!firstName || !lastName || !email || !password) {
-      throw new Error('Missing required user fields');
+    const range = 'A1:F1000'; // Adjust the range to read existing data
+    const data = await getSheet(spreadsheetId, range);
+    
+    // Check for duplicates based on email
+    const duplicate = data && data.some(row => row[2] === user.email);
+    if (duplicate) {
+      console.log('User with this email already exists');
+      return;
     }
 
-    const values = [[firstName, lastName, email, password]];
-    console.log('Values to append:', values);
+    // Append the new user data if no duplicate is found
+    const appendRange = 'A1:F1'; // Adjust the range if needed
+    await appendRow(spreadsheetId, appendRange, [[user.firstName, user.lastName, user.email, user.password, user.year, user.major]]);
+    console.log('User added to sheet');
 
-    await appendRow(spreadsheetId, range, values);
-    console.log('User added successfully');
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: 'User created successfully' }),
-    };
+    // Verify writing by reading the updated data
+    const updatedData = await getSheet(spreadsheetId, range);
+    console.log('Updated data read from sheet:', updatedData);
   } catch (error) {
-    console.error('Error adding user:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: error.message || 'Failed to create user' }),
-    };
+    console.error('Error creating user:', error);
   }
+}
+
+const user = {
+  firstName: "John",
+  lastName: "Doe",
+  email: "john.doe@example.com",
+  password: "password123",
+  year: "Sophomore",
+  major: "Computer Science",
 };
+
+const spreadsheetId = '1kvgpO5QP0NYuSp0bPN-mDniKvK6j3PUN6DirH64guUo'; // Your actual spreadsheet ID
+
+createUser(spreadsheetId, user);

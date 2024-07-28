@@ -1,5 +1,5 @@
 const {google} = require('googleapis');
-const {auth} = require('../auth');
+const {auth} = require('../auth.js');
 const {getSheet, appendRow} = require('../sheets');
 
 const testSpreadsheetId = '18ebkd5LGkuy0gaw1IH1Tpey3PZvyT0w04ky-eVEg674'; // Your actual spreadsheet ID
