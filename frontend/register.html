@@ -36,7 +36,7 @@
     <div class="content-wrapper animate">
         <section class="about">
             <h2>Register</h2>
-            <form action="/register" method="post" class="page-content">
+            <form action="/backend/functions/registerUser.js" method="post" class="page-content">
                 <div>
                     <label for="firstName">First Name:</label>
                     <input type="text" id="firstName" name="firstName" required>
@@ -52,6 +52,14 @@
                 <div>
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="year">Year:</label>
+                    <input type="text" id="year" name="year">
+                </div>
+                <div>
+                    <label for="major">Major:</label>
+                    <input type="text" id="major" name="major">
                 </div>
                 <div>
                     <button type="submit" class="button">Register</button>
