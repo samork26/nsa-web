@@ -1,4 +1,4 @@
-require('dotenv').config({path: "./backend/.env"});
+require('dotenv').config({path: "backend/.env"});
 const {google} = require('googleapis');
 const {exec} = require('child_process');
 
