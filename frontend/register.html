@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Neuroscience Alliance @ UCF</title>
-    <link rel="icon" href="logos/NSA LOGO.PNG">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <img src="logos/NSA LOGO.PNG" class="logo">
+        <img src="logos/NSA LOGO.PNG" class="logo" alt="NSA Logo">
         <h1>Neuroscience Alliance at UCF</h1>
         <nav>
             <ul class="menu">
@@ -21,11 +20,6 @@
                 <li class="nav-item"><a href="membership.html#" class="nav-link">Membership</a></li>
                 <li class="nav-item"><a href="brain-bee.html#" class="nav-link">Brain Bee</a></li>
             </ul> 
-            <ul class="hamburger-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </ul>
         </nav>
     </header>
 
@@ -33,7 +27,7 @@
         <h2>Create Your Account</h2>
     </section>
 
-    <div class="content-wrapper animate">
+    <div class="content-wrapper">
         <section class="about">
             <h2>Register</h2>
             <form id="registerForm" class="page-content">
@@ -81,28 +75,32 @@
         </div>
     </footer>
     <script>
-        document.getElementById('registerForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-
-            try {
-                const response = await fetch('.netlify/functions/registerUser', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Document loaded');
+            document.getElementById('registerForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                console.log('Form submitted');
+                const formData = new FormData(e.target);
+                const data = {};
+                formData.forEach((value, key) => {
+                    data[key] = value;
                 });
 
-                const result = await response.json();
-                console.log('Result:', result);
-            } catch (error) {
-                console.error('Error:', error);
-            }
+                try {
+                    const response = await fetch('.netlify/functions/registerUser', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+                    console.log('Result:', result);
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            });
         });
     </script>
 </body>
